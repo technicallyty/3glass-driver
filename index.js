@@ -25,14 +25,6 @@ while(true) {
     break;
   }
 
-  if(moves == 100){
-    console.log("moves hit 100...\n");
-    console.log("\nNodes:\n");
-    console.log(g.nodes);
-    console.log("\nGraph length: ", g.nodes.length);
-    break;
-  }
-
   //  first - get the possible moves, and pick a DPV to move to.
   let possibleMoves = consolidate(moveAll(currentNode.DPV), moveToLimit(currentNode.DPV));
   
