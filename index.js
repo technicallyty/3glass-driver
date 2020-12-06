@@ -48,7 +48,7 @@ while (true) {
   // case null - the picked node doesn't yet exist in the network.
   if (index === null) {
     // node doesnt exist yet, so create a new node with inital edge current node, and add the picked node to current nodes edge list
-    g.addNode(pick, [currentNode.DPV]);
+    g.addNode(pick, []);
     currentNode.edges.push(pick);
     currentNode = g.nodes[g.nodes.length - 1];
   } else {
