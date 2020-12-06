@@ -39,6 +39,10 @@ class Graph {
     }
     return true;
   }
+
+  shortestPath(dpv) {
+    
+  }
 }
 
 export { Graph };
