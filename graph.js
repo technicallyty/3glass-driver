@@ -1,9 +1,15 @@
+const D_MAX = 19;
+const P_MAX = 13;
+const V_MAX = 7;
+
 class Graph {
   constructor(DPV) {
+    this.startingDPV = { D: 0, P: 13, V: 6 };
     this.nodes = [
       {
         DPV,
         edges: [],
+        visited: true,
       },
     ];
   }
@@ -12,12 +18,13 @@ class Graph {
     this.nodes.push({
       DPV,
       edges,
+      visited: false
     });
   }
 
   checkExist(dpv) {
     // check if node exists, returning its index otherwise returning null
-    for (let i in this.nodes) {
+    for (let i = 0; i < this.nodes.length; ++i) {
       let node = this.nodes[i].DPV;
       if (node.D === dpv.D && node.P === dpv.P && node.V === dpv.V) {
         return i;
@@ -38,6 +45,19 @@ class Graph {
       return false;
     }
     return true;
+  }
+
+  // finds an unvisited node and returns its index, otherwise null
+  findUnvisitedNode(nodeSet) { 
+    for(let i = 0; i < nodeSet.length; i++) {
+      let index = this.checkExist(nodeSet[i]);
+      if(index !== null) {  // it exists in the set
+        if(this.nodes[index].visited === false) {
+          return index;
+        }
+      }
+    }
+    return null;
   }
 
   shortestPath(dpv) {
