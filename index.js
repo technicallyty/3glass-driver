@@ -52,21 +52,25 @@ while(true) {
     currentNode = g.nodes[g.nodes.length-1];
   } else { // the node already exists, so we should check if it already has the connection and then add it if not
     // add the edge to the node we are going to, removing duplicates.
+    
     let edges = g.nodes[index].edges;
     let newEdge = [currentNode.DPV];
     let newEdges = consolidate(edges, newEdge);
     g.nodes[index].edges = newEdges;
     
     // add the node's DPV we are going to to the current nodes edge table, removing duplicates
+    // commenting this out because you dont always know that you can go from the nextNode to the currentNode.
+    /*
     edges = currentNode.edges;
     newEdge = [pick];
     let newerEdges = consolidate(edges, newEdge);
     currentNode.edges = newerEdges;
-
+    */
     currentNode = g.nodes[index];
   }
   moves++;
 
 }
 
+console.log(g.nodes)
 console.log(g.nodes.length);
