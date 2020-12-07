@@ -59,6 +59,7 @@ while(g.notEquals(currentNode.DPV, target)) {
 
   currentNode = nextNode;
   currentNode.visited = true;
+  moves++;
 }
 
 target = g.startingDPV;
@@ -96,7 +97,9 @@ while(g.notEquals(currentNode.DPV, target)) {
 
   currentNode = nextNode;
   currentNode.visited = true;
+  moves++;
 }
 
-
 console.log(g.nodes);
+console.log("Length: " + g.nodes.length);
+console.log("Moves: " + moves);
